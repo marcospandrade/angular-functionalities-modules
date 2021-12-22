@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  background-color: #000;
+}
+
+h1,
+h2,
+p,
+a,
+label,
+th,
+td {
+  color: white;
+}
+
+table {
+  text-align: center;
+}

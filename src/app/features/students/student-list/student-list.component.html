@@ -1,0 +1,47 @@
+<h2 class="mb-4 mt-5 text-center">Students list</h2>
+
+<div class="d-flex">
+  <a routerLink="/students/new" class="btn btn-outline-light ml-auto my-3">
+    <fa-icon [icon]="faAddUser"></fa-icon>
+  </a>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-sm table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>E-mail</th>
+        <th>Age</th>
+        <th>Birthday</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="!students.length">
+        <td colspan="5">No records found</td>
+      </tr>
+      <tr *ngFor="let student of students">
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.birthDay | age }}</td>
+        <td>{{ student.birthDay | date: "dd/MM/yyy" }}</td>
+        <td>
+          <a
+            [routerLink]="['/students', student.id]"
+            class="btn btn-sm btn-outline-warning mx-1"
+          >
+            <fa-icon [icon]="faPencil"></fa-icon>
+          </a>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-danger mx-1"
+            (click)="onDelete(student.id)"
+          >
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
